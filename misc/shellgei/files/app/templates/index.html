@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+<body>
+  <h2>shellgei</h2>
+  <p>
+    記号<b>!"#$%&'()*+,-./:;<=>?@[\]{}^ _\n</b>のみでflag.txtの内容を出力するBashスクリプトを書いてください！
+  </p>
+  <form id="code-form">
+    <label for="payload">Bash Script</label>
+    <textarea id="payload" name="payload" rows="10" cols="50" placeholder="Write Script Here!"></textarea>
+    <input id="btn" type="submit" value="提出">
+  </form>
+  <h2>出力</h2>
+  <code id="result">None</code>
+  <script>
+    const fetchFormElem = document.getElementById("code-form");
+    const btnElem = document.getElementById("btn");
+    const resultElem = document.getElementById("result");
+
+    const judgeFetch = (e) => {
+	  e.preventDefault();
+      let formData = new FormData(fetchFormElem);
+      fetch('/', {
+        method: 'POST',
+        body: formData
+      })
+      .then((res) => res.json())
+      .then((res) => {
+        resultElem.innerText = res;
+      })
+      .catch((e) => {
+        alert("error occurs", e);
+      })
+    }; 
+    btnElem.addEventListener('click', judgeFetch, false);
+  </script>
+</body>
+</html>

@@ -1,0 +1,33 @@
+name: "anti_detection"
+author: "task4233"
+category: "misc"
+description: |
+    Flagを取得するための実行ファイルとアップローダを用意しました。
+    ただし、アップロードされた実行ファイルが防御システムに既存の実行ファイルと類似したファイルと判断されると実行されない仕組みになっています。
+    そこで、検知システムをすり抜ける実行ファイルを作ってFlagを取得してください！
+
+flags:
+    - "taskctf{p0werfu1_fuzzy_h4sh}"
+
+tags:
+    - easy
+
+connection_info: http://localhost:31516
+healthcheck: python3 solver/check.py
+files:
+    - files/detected
+
+requirements:
+    - "welcome"
+
+value: 500
+type: dynamic
+extra:
+    initial: 500
+    decay: 100
+    minimum: 100
+
+image: null
+host: null
+state: visible
+version: "0.1"

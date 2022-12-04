@@ -1,0 +1,63 @@
+# This file represents the base specification of your challenge. It is used by
+# other tools to install and deploy your challenge.
+
+
+############################
+# NOTE: ここから編集してください
+# 
+# 編集する必要のある部分は TODO: の prefix がついています
+############################
+name: "kofun"     # TODO: 問題名を設定してください
+author: "task4233"           # TODO: 自分のアカウント名を設定してください
+category: "osint"          # TODO: カテゴリを設定してください
+description: "作問者が訪れてSNSにもアップロードしたはずの古墳の名前を思い出せなくなってしまいました...\nもしご存知なら教えてくれませんか？\n\nFlagは`taskctf{この古墳の名前}`です。\n例えば、 造山古墳 が答えならば taskctf{造山古墳} がフラグになります。"   # TODO: 説明文を入力してください
+
+flags:
+    - "taskctf{上福田岩屋古墳}"                # TODO: Flagを追加してください
+
+# Provide paths to files from the same directory that this file is in
+# Accepts strings
+files:                              # 配布ファイルがない場合はコメントアウトしてください
+    - files/kofun.jpeg
+
+
+############################
+# NOTE: ここまで編集してください
+############################
+
+# The extra field provides additional fields for data during the install/sync commands/
+# Fields in extra can be used to supply additional information for other challenge types
+# For example the follow extra field is for dynamic challenges. To use these following
+# extra fields, set the type to "dynamic" and uncomment the "extra" section below
+value: 500
+type: dynamic
+extra:
+    initial: 500
+    decay: 100
+    minimum: 100
+
+# Settings used for Dockerfile deployment
+# If not used, remove or set to null
+# If you have a Dockerfile set to .
+# If you have an imaged hosted on Docker set to the image url (e.g. python/3.8:latest, registry.gitlab.com/python/3.8:latest)
+# Follow Docker best practices and assign a tag
+image: null
+
+# Specify a host to deploy the challenge onto.
+# The currently supported URI schemes are ssh:// and registry://
+# ssh is an ssh URI where the above image will be copied to and deployed (e.g. ssh://root@123.123.123.123)
+# registry is a Docker registry tag (e.g registry://registry.example.com/test/image)
+# host can also be specified during the deploy process: `ctf challenge deploy challenge --host=ssh://root@123.123.123.123`
+# edit by t4sk4233
+host: null
+
+# Optional settings
+
+# The state of the challenge.
+# If the field is omitted, the challenge is visible by default.
+# If provided, the field can take one of two values: hidden, visible.
+state: visible
+
+# Specifies what version of the challenge specification was used.
+# Subject to change until ctfcli v1.0.0
+version: "0.1"

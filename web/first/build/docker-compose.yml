@@ -1,0 +1,23 @@
+version: "3"
+
+services:
+  first_uwsgi:
+    container_name: "first_app"
+    build: ./app
+    volumes:
+      - ./app:/var/www
+    environment:
+      TZ: "Asia/Tokyo"
+    restart: always
+  first_nginx:
+    container_name: "first_nginx"
+    build: ./nginx
+    volumes:
+      - ./nginx/nginx.conf:/etc/nginx/nginx.conf
+    depends_on:
+      - first_uwsgi
+    ports:
+       - "31555:80"
+    environment:
+      TZ: "Asia/Tokyo"
+    restart: always

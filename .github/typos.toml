@@ -1,0 +1,5 @@
+[default.extend-words]
+nd = "nd"
+
+[files]
+extend-exclude = ["yarn.lock", "go.sum", "nginx.conf"]
